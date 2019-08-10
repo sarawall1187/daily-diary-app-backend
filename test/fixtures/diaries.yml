@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  todays_entry: MyString
+  tomorrows_goal: MyString
+  food_log: MyString
+  user_id: 1
+
+two:
+  todays_entry: MyString
+  tomorrows_goal: MyString
+  food_log: MyString
+  user_id: 1
