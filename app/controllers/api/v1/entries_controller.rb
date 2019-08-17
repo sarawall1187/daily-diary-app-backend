@@ -12,4 +12,28 @@ class Api::V1::EntriesController < ApplicationController
             }
         end
     end
+
+    def create
+       
+        @entry = Entry.new(entry_params)
+        binding.pry
+        if @entry.save
+            render json: @entry, status: :created
+        else
+            render json: {
+
+               error: @entry.errors.full_messages.to_sentence, status: :unproccessable_entity
+            }
+        end
+
+    end
+
+
+
+
+    private 
+
+    def entry_params
+        params.require(:entry).permit(:todays_entry, :tomorrows_goal, :food_log, :created_at, :user_id)
+    end
 end
