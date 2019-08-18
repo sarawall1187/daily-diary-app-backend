@@ -16,9 +16,9 @@ class Api::V1::EntriesController < ApplicationController
     def create
        
         @entry = Entry.new(entry_params)
-        binding.pry
+        # binding.pry
         if @entry.save
-            render json: @entry, status: :created
+            render json: EntrySerializer.new(@entryS), status: :created
         else
             render json: {
 
@@ -34,6 +34,6 @@ class Api::V1::EntriesController < ApplicationController
     private 
 
     def entry_params
-        params.require(:entry).permit(:todays_entry, :tomorrows_goal, :food_log, :created_at, :user_id)
+        params.require(:entry).permit(:todays_entry, :tomorrows_goal, :food_log, :user_id)
     end
 end
