@@ -28,6 +28,18 @@ class Api::V1::EntriesController < ApplicationController
 
     end
 
+    def update
+        @entry = Entry.find(params[:id])
+        if @entry.update(entry_params)
+          render json: EntrySerializer.new(@entry)
+        else
+            render json: {
+
+                error: @entry.errors.full_messages.to_sentence, status: :unproccessable_entity
+             }
+        end
+      end
+
 
 
 
