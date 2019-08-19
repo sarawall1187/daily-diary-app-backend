@@ -18,7 +18,7 @@ class Api::V1::EntriesController < ApplicationController
         @entry = Entry.new(entry_params)
         # binding.pry
         if @entry.save
-            render json: EntrySerializer.new(@entryS), status: :created
+            render json: EntrySerializer.new(@entry), status: :created
         else
             render json: {
 
