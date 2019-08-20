@@ -43,7 +43,7 @@ class Api::V1::EntriesController < ApplicationController
       def destroy
         @entry = Entry.find(params[:id])
         if @entry.destroy
-          render json: "Diary entry has been deleted."
+          render json: { data: "Diary entry has been deleted."}, status: :ok
         else
             render json: {
 
