@@ -40,6 +40,18 @@ class Api::V1::EntriesController < ApplicationController
         end
       end
 
+      def destroy
+        @entry = Entry.find(params[:id])
+        if @entry.destroy
+          render json: "Diary entry has been deleted."
+        else
+            render json: {
+
+                error: "Diary entry not found."
+             }
+        end
+      end
+
 
 
 
