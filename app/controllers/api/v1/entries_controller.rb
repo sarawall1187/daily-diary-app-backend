@@ -3,7 +3,6 @@ class Api::V1::EntriesController < ApplicationController
     def index
         if logged_in?
         @entries = current_user.entries
-        #    @entries.get_date 
         render json: EntrySerializer.new(@entries)
        
         else 
@@ -13,10 +12,8 @@ class Api::V1::EntriesController < ApplicationController
         end
     end
 
-    def create
-       
+    def create 
         @entry = Entry.new(entry_params)
-        # binding.pry
         if @entry.save
             render json: EntrySerializer.new(@entry), status: :created
         else
