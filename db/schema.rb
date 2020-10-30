@@ -13,18 +13,18 @@
 ActiveRecord::Schema.define(version: 2019_08_14_154641) do
 
   create_table "entries", force: :cascade do |t|
-    t.string "todays_entry"
-    t.string "tomorrows_goal"
-    t.string "food_log"
+    t.text "todays_entry"
+    t.text "tomorrows_goal"
+    t.text "food_log"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "email"
-    t.string "password_digest"
+    t.text "username"
+    t.text "email"
+    t.text "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
